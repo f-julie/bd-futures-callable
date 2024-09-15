@@ -1,6 +1,9 @@
+import utilities.AmazonMusicAccount;
 import utilities.MusicAccountService;
 
-public class ImportAccountTask {
+import java.util.concurrent.Callable;
+
+public class ImportAccountTask implements Callable<AmazonMusicAccount> {
     // PARTICIPANTS: Complete this class's declaration and implement the call() method.
 
     private MusicAccountService accountService;
@@ -30,7 +33,8 @@ public class ImportAccountTask {
      *   from the MusicAccountService.
      * @return AmazonMusicAccount object.
      */
-    public Object call() {
-        return null;
+    @Override
+    public AmazonMusicAccount call() {  // Override call method
+        return accountService.getAccount(accountID); // Call the service to get the account
     }
 }
